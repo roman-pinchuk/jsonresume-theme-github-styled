@@ -1,0 +1,22 @@
+{
+  "name": "jsonresume-theme-github",
+  "version": "1.0.0",
+  "description": "A GitHub-styled JSON Resume theme with dark/light mode support and mobile responsiveness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jsonresume",
+    "theme",
+    "github",
+    "dark-mode",
+    "responsive"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  },
+  "devDependencies": {}
+}
