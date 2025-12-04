@@ -8,7 +8,7 @@ A modern, clean JSON Resume theme inspired by GitHub's design system with dark/l
 
 ![resume-gh](https://github.com/user-attachments/assets/50d493fb-e0de-4c77-8bec-ad0a3afa5c43)
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Styled-blue?style=for-the-badge&logo=github&logoColor=white)](https://roman-pinchuk.github.io/jsonresume-theme-modern-plain)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Styled-blue?style=for-the-badge&logo=github&logoColor=white)](https://roman-pinchuk.github.io/jsonresume-theme-github-styled)
 
 ## Features
 
