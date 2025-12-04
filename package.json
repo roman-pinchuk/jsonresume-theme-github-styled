@@ -20,12 +20,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/romanpinchuk/jsonresume-theme-github-styled.git"
+    "url": "https://github.com/roman-pinchuk/jsonresume-theme-github-styled.git"
   },
   "bugs": {
-    "url": "https://github.com/romanpinchuk/jsonresume-theme-github-styled/issues"
+    "url": "https://github.com/roman-pinchuk/jsonresume-theme-github-styled/issues"
   },
-  "homepage": "https://github.com/romanpinchuk/jsonresume-theme-github-styled#readme",
+  "homepage": "https://github.com/roman-pinchuk/jsonresume-theme-github-styled#readme",
   "files": [
     "index.js",
     "resume.hbs",
