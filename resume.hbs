@@ -38,18 +38,9 @@
       }
     }
   </script>
-  <style>
-    @media print {
-      .no-print {
-        display: none !important;
-      }
-      body {
-        background: white !important;
-      }
-    }
-  </style>
   <script>
     // Apply theme before body renders to prevent flicker
+    // Must run before Tailwind processes the page
     (function() {
       const savedTheme = localStorage.getItem('theme') || 'system';
       if (savedTheme === 'dark') {
@@ -62,8 +53,27 @@
       }
     })();
   </script>
+  <style>
+    /* Prevent flash of unstyled content */
+    html:not(.dark) {
+      background-color: #ffffff;
+      color: #24292f;
+    }
+    html.dark {
+      background-color: #22272e;
+      color: #e6edf3;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+      }
+    }
+  </style>
 </head>
-<body class="bg-github-canvas-default dark:bg-github-canvas-dark text-github-fg-default dark:text-github-fg-dark transition-colors duration-200">
+<body class="bg-github-canvas-default dark:bg-github-canvas-dark text-github-fg-default dark:text-github-fg-dark">
 
   <!-- Theme Toggle Button -->
   <div class="no-print fixed top-4 right-4 z-50">
