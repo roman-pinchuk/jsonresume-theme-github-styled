@@ -1,5 +1,5 @@
 {
-  "name": "jsonresume-theme-github",
+  "name": "jsonresume-theme-github-styled",
   "version": "1.0.0",
   "description": "A GitHub-styled JSON Resume theme with dark/light mode support and mobile responsiveness",
   "main": "index.js",
@@ -8,15 +8,31 @@
   },
   "keywords": [
     "jsonresume",
+    "jsonresume-theme",
     "theme",
     "github",
     "dark-mode",
-    "responsive"
+    "responsive",
+    "resume",
+    "cv"
   ],
-  "author": "",
+  "author": "Roman Pinchuk",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romanpinchuk/jsonresume-theme-github-styled.git"
+  },
+  "bugs": {
+    "url": "https://github.com/romanpinchuk/jsonresume-theme-github-styled/issues"
+  },
+  "homepage": "https://github.com/romanpinchuk/jsonresume-theme-github-styled#readme",
+  "files": [
+    "index.js",
+    "resume.hbs",
+    "README.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "handlebars": "^4.7.8"
-  },
-  "devDependencies": {}
+  }
 }
