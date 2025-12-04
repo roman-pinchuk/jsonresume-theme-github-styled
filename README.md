@@ -1,6 +1,14 @@
 # JSON Resume Theme - GitHub Style
 
+[![npm version](https://img.shields.io/npm/v/jsonresume-theme-github-styled.svg)](https://www.npmjs.com/package/jsonresume-theme-github-styled)
+[![npm downloads](https://img.shields.io/npm/dm/jsonresume-theme-github-styled.svg)](https://www.npmjs.com/package/jsonresume-theme-github-styled)
+[![license](https://img.shields.io/npm/l/jsonresume-theme-github-styled.svg)](https://github.com/roman-pinchuk/jsonresume-theme-github-styled/blob/main/LICENSE)
+
 A modern, clean JSON Resume theme inspired by GitHub's design system with dark/light mode support and mobile-responsive layout using Tailwind CSS.
+
+![resume-gh](https://github.com/user-attachments/assets/50d493fb-e0de-4c77-8bec-ad0a3afa5c43)
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Styled-blue?style=for-the-badge&logo=github&logoColor=white)](https://roman-pinchuk.github.io/jsonresume-theme-modern-plain)
 
 ## Features
 
