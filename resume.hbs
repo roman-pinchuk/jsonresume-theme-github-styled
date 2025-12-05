@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>{{basics.name}}{{#if basics.label}} – {{basics.label}}{{/if}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com" data-cfasync="false"></script>
   <script data-cfasync="false">
     tailwind.config = {
@@ -55,14 +58,95 @@
   </script>
   <style>
     /* Prevent flash of unstyled content */
-    html:not(.dark) {
+    html {
       background-color: #ffffff;
       color: #24292f;
     }
+
     html.dark {
-      background-color: #22272e;
+      background-color: rgb(33, 40, 48);
       color: #e6edf3;
     }
+
+    body {
+      min-height: 100vh;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      background-color: inherit;
+    }
+
+    /* Lighter text colors for dark mode */
+    .dark .text-github-fg-dark {
+      color: #e6edf3 !important;
+    }
+
+    .dark .text-github-fg-dark-muted {
+      color: #adbac7 !important;
+    }
+
+    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+      color: #e6edf3 !important;
+    }
+
+    .dark .glass-tile {
+      color: #e6edf3;
+    }
+
+    .dark .glass-tile .text-github-fg-muted {
+      color: #adbac7 !important;
+    }
+
+    /* GitHub Brand frosted glass effect for tiles */
+    .glass-tile {
+      background: rgba(246, 248, 250, 0.7) !important;
+      backdrop-filter: blur(150px) saturate(180%);
+      -webkit-backdrop-filter: blur(150px) saturate(180%);
+      border: 1px solid rgba(208, 215, 222, 0.3) !important;
+      border-radius: 8px !important;
+      box-shadow:
+        2px 2px 3px 0 rgba(0, 0, 0, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+      position: relative;
+    }
+
+    .glass-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .dark .glass-tile {
+      background: rgba(45, 51, 59, 0.7) !important;
+      border: 1px solid rgba(68, 76, 86, 0.3) !important;
+      box-shadow:
+        2px 2px 3px 0 rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .dark .glass-tile::before {
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      opacity: 0.4;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+    }
+
     @media print {
       .no-print {
         display: none !important;
@@ -70,13 +154,18 @@
       body {
         background: white !important;
       }
+      .glass-tile {
+        background: white !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
     }
   </style>
 </head>
-<body class="bg-github-canvas-default dark:bg-github-canvas-dark text-github-fg-default dark:text-github-fg-dark">
+<body class="text-github-fg-default dark:text-github-fg-dark">
 
   <!-- Theme Toggle Button -->
-  <div class="no-print fixed top-4 right-4 z-50">
+  <div class="no-print fixed z-50" style="top: max(1rem, env(safe-area-inset-top)); right: max(1rem, env(safe-area-inset-right));">
     <button id="theme-toggle" class="p-2 rounded-lg bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark hover:border-github-accent-emphasis dark:hover:border-github-accent-dark transition-colors" title="Theme">
       <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -213,12 +302,12 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Skills</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {{#each skills}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
           <h3 class="font-semibold mb-2">{{name}}</h3>
           {{#if keywords}}
           <div class="flex flex-wrap gap-2">
             {{#each keywords}}
-            <span class="px-2 py-1 text-sm bg-github-canvas-default dark:bg-github-canvas-dark border border-github-border-default dark:border-github-border-dark rounded">{{this}}</span>
+            <span class="px-2 py-1 text-sm bg-github-canvas-default dark:bg-github-canvas-dark border border-github-border-default dark:border-github-border-dark rounded font-mono">{{this}}</span>
             {{/each}}
           </div>
           {{/if}}
@@ -234,7 +323,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Work Experience</h2>
       <div class="space-y-6">
         {{#each work}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
             <div>
               <h3 class="text-xl font-semibold">{{position}}</h3>
@@ -251,7 +340,7 @@
               </p>
             </div>
             <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0 md:text-right">
-              {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}} → {{endDate}}{{else}}{{#if startDate}} → Present{{/if}}{{/if}}
+              {{#if startDate}}{{formatDate startDate}}{{/if}}{{#if endDate}} → {{formatDate endDate}}{{else}}{{#if startDate}} → Present{{/if}}{{/if}}
             </div>
           </div>
           {{#if summary}}
@@ -276,7 +365,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Education</h2>
       <div class="space-y-4">
         {{#each education}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start">
             <div>
               <h3 class="text-xl font-semibold">{{studyType}}{{#if area}} in {{area}}{{/if}}</h3>
@@ -286,7 +375,7 @@
               {{#if (or gpa score)}}<p class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1">GPA: {{#if gpa}}{{gpa}}{{else}}{{score}}{{/if}}</p>{{/if}}
             </div>
             <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">
-              {{#if startDate}}{{year startDate}}{{/if}}{{#if endDate}} → {{year endDate}}{{/if}}
+              {{#if startDate}}{{formatDate startDate}}{{/if}}{{#if endDate}} → {{formatDate endDate}}{{/if}}
             </div>
           </div>
           {{#if courses}}
@@ -311,7 +400,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Projects</h2>
       <div class="space-y-4">
         {{#each projects}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
             <div>
               <h3 class="text-xl font-semibold">
@@ -321,7 +410,7 @@
             </div>
             {{#if startDate}}
             <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">
-              {{startDate}}{{#if endDate}} → {{endDate}}{{/if}}
+              {{formatDate startDate}}{{#if endDate}} → {{formatDate endDate}}{{/if}}
             </div>
             {{/if}}
           </div>
@@ -354,7 +443,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Awards & Honors</h2>
       <div class="space-y-3">
         {{#each awards}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start">
             <div>
               <h3 class="font-semibold">{{title}}</h3>
@@ -362,7 +451,7 @@
               {{#if summary}}<p class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1">{{summary}}</p>{{/if}}
             </div>
             {{#if date}}
-            <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">{{date}}</div>
+            <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">{{formatDate date}}</div>
             {{/if}}
           </div>
         </div>
@@ -377,7 +466,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Certificates</h2>
       <div class="space-y-3">
         {{#each certificates}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start">
             <div>
               <h3 class="font-semibold">
@@ -386,7 +475,7 @@
               {{#if issuer}}<p class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted">{{issuer}}</p>{{/if}}
             </div>
             {{#if date}}
-            <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">{{date}}</div>
+            <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">{{formatDate date}}</div>
             {{/if}}
           </div>
         </div>
@@ -401,7 +490,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Publications</h2>
       <div class="space-y-4">
         {{#each publications}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start">
             <div>
               <h3 class="font-semibold">
@@ -411,7 +500,7 @@
               {{#if summary}}<p class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-2">{{summary}}</p>{{/if}}
             </div>
             {{#if releaseDate}}
-            <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">{{releaseDate}}</div>
+            <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">{{formatDate releaseDate}}</div>
             {{/if}}
           </div>
         </div>
@@ -426,7 +515,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Volunteer Experience</h2>
       <div class="space-y-4">
         {{#each volunteer}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4 md:p-6">
           <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
             <div>
               <h3 class="text-xl font-semibold">{{position}}</h3>
@@ -435,7 +524,7 @@
               </p>
             </div>
             <div class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 md:mt-0">
-              {{#if startDate}}{{startDate}}{{/if}}{{#if endDate}} → {{endDate}}{{/if}}
+              {{#if startDate}}{{formatDate startDate}}{{/if}}{{#if endDate}} → {{formatDate endDate}}{{/if}}
             </div>
           </div>
           {{#if summary}}
@@ -460,7 +549,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Languages</h2>
       <div class="flex flex-wrap gap-3">
         {{#each languages}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg px-4 py-2">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg px-4 py-2">
           <span class="font-medium">{{language}}</span>
           {{#if fluency}}<span class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted"> - {{fluency}}</span>{{/if}}
         </div>
@@ -475,7 +564,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">Interests</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {{#each interests}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
           <h3 class="font-semibold mb-2">{{name}}</h3>
           {{#if keywords}}
           <div class="flex flex-wrap gap-2">
@@ -496,7 +585,7 @@
       <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-github-border-default dark:border-github-border-dark">References</h2>
       <div class="space-y-3">
         {{#each references}}
-        <div class="bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
+        <div class="glass-tile bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark rounded-lg p-4">
           <h3 class="font-semibold">{{name}}</h3>
           {{#if reference}}<p class="text-sm text-github-fg-muted dark:text-github-fg-dark-muted mt-1 italic">"{{reference}}"</p>{{/if}}
         </div>

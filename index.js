@@ -16,6 +16,12 @@ Handlebars.registerHelper('year', function(dateString) {
   return dateString.substring(0, 4);
 });
 
+Handlebars.registerHelper('formatDate', function(dateString) {
+  if (!dateString) return '';
+  // Extract just the year: 2022-02 becomes 2022
+  return dateString.substring(0, 4);
+});
+
 function render(resume) {
   const templatePath = path.join(__dirname, 'resume.hbs');
   const template = fs.readFileSync(templatePath, 'utf-8');
