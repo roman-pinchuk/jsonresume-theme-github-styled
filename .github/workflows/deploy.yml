@@ -1,16 +1,8 @@
 name: Deploy Demo to GitHub Pages
 
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'index.js'
-      - 'resume.hbs'
-      - 'style.css'
-      - 'resume.sample.json'
-      - 'package.json'
-      - 'package-lock.json'
+  release:
+    types: [published]
   workflow_dispatch:
 
 permissions:
