@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{basics.name}}{{#if basics.label}} – {{basics.label}}{{/if}}</title>
+  <title>{{basics.name}}{{#if basics.label}} &ndash; {{basics.label}}{{/if}}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -140,7 +140,7 @@
 <body class="text-github-fg-default dark:text-github-fg-dark">
 
   <!-- Theme Toggle Button -->
-  <div class="no-print fixed z-50" style="top: max(1rem, env(safe-area-inset-top)); right: max(1rem, env(safe-area-inset-right));">
+  <div class="no-print fixed z-50" style="top: max(1rem, env(safe-area-inset-top)); right: max(1rem, calc(50vw - 32rem - 4rem));">
     <button id="theme-toggle" class="p-2 rounded-lg bg-github-canvas-subtle dark:bg-github-canvas-dark-subtle border border-github-border-default dark:border-github-border-dark hover:border-github-accent-emphasis dark:hover:border-github-accent-dark transition-colors" title="Theme">
       <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
