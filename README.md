@@ -6,7 +6,7 @@
 
 A modern, clean JSON Resume theme based on GitHub's soft dark and light themes with seamless dark/light mode support and mobile-responsive layout using Tailwind CSS.
 
-<img width="2331" height="756" alt="image" src="https://github.com/user-attachments/assets/637e29a1-c4d1-4c5e-bb20-4da2996e05a4" />
+<img width="1541" height="643" alt="image" src="https://github.com/user-attachments/assets/da7644fd-66d9-4f37-9570-7a3467dc99e1" />
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Styled-blue?style=for-the-badge&logo=github&logoColor=white)](https://roman-pinchuk.github.io/jsonresume-theme-github-styled)
 
