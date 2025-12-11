@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/jsonresume-theme-github-styled.svg)](https://www.npmjs.com/package/jsonresume-theme-github-styled)
 [![license](https://img.shields.io/npm/l/jsonresume-theme-github-styled.svg)](https://github.com/roman-pinchuk/jsonresume-theme-github-styled/blob/main/LICENSE)
 
-A modern, clean JSON Resume theme inspired by GitHub's design system with dark/light mode support and mobile-responsive layout using Tailwind CSS.
+A modern, clean JSON Resume theme based on GitHub's soft dark and light themes with seamless dark/light mode support and mobile-responsive layout using Tailwind CSS.
 
 ![resume-gh](https://github.com/user-attachments/assets/50d493fb-e0de-4c77-8bec-ad0a3afa5c43)
 
@@ -12,12 +12,12 @@ A modern, clean JSON Resume theme inspired by GitHub's design system with dark/l
 
 ## Features
 
-- **GitHub-inspired Design**: Clean, professional layout following GitHub's design language
+- **GitHub Soft Themes**: Authentic recreation of GitHub's soft dark and light color schemes with frosted glass effects
 - **Dark/Light Mode**: Automatic theme detection with manual toggle and localStorage persistence
 - **Mobile Responsive**: Fully optimized for mobile, tablet, and desktop views
 - **Modern Technology**: Built with Tailwind CSS for modern styling
-- **Print-Friendly**: Optimized styles for PDF export and printing
 - **Self-Contained**: All styles and scripts embedded in the template
+- **Web-First Design**: Optimized for screen viewing with beautiful visual effects
 
 ## Installation
 
@@ -110,7 +110,7 @@ Your `resume.json` should follow the [JSON Resume schema](https://jsonresume.org
 
 ### Dark/Light Mode
 
-The theme automatically detects your system's color scheme preference and applies the appropriate theme. You can manually toggle between dark and light modes using the button in the top-right corner. Your preference is saved in localStorage and persists across sessions.
+The theme features GitHub's authentic soft dark and soft light color schemes with frosted glass tile effects. It automatically detects your system's color scheme preference and applies the appropriate theme. You can manually toggle between dark and light modes using the button in the top-right corner. Your preference is saved in localStorage and persists across sessions.
 
 ### Mobile Optimization
 
@@ -119,9 +119,9 @@ The theme is fully responsive with breakpoints optimized for:
 - Tablets (768px - 1024px)
 - Desktop (> 1024px)
 
-### Print Support
+### Visual Effects
 
-The theme includes print-optimized styles. The theme toggle button is hidden when printing, and colors are optimized for both screen and print media.
+The theme features frosted glass tiles with backdrop blur and subtle shadows, creating a modern, layered visual effect that works beautifully in both dark and light modes. This is a web-first design optimized for screen viewing rather than printing.
 
 ## Customization
 
