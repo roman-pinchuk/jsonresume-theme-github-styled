@@ -1,6 +1,6 @@
 {
   "name": "jsonresume-theme-github-styled",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A GitHub-styled JSON Resume theme with dark/light mode support and mobile responsiveness",
   "main": "index.js",
   "scripts": {
