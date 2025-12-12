@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/jsonresume-theme-github-styled.svg)](https://www.npmjs.com/package/jsonresume-theme-github-styled)
 [![npm downloads](https://img.shields.io/npm/dm/jsonresume-theme-github-styled.svg)](https://www.npmjs.com/package/jsonresume-theme-github-styled)
-[![license](https://img.shields.io/npm/l/jsonresume-theme-github-styled.svg)](https://github.com/roman-pinchuk/jsonresume-theme-github-styled/blob/main/LICENSE)
+[![license](https://img.shields.io/npm/l/jsonresume-theme-github-styled.svg)](https://github.com/roman-pinchuk/jsonresume-theme-github-styled/blob/master/LICENSE)
 
 A modern, clean JSON Resume theme based on GitHub's soft dark and light themes with seamless dark/light mode support and mobile-responsive layout using Tailwind CSS.
 
@@ -25,14 +25,14 @@ A modern, clean JSON Resume theme based on GitHub's soft dark and light themes w
 
 1. Install the theme:
 ```bash
-npm install jsonresume-theme-github
+npm install jsonresume-theme-github-styled
 ```
 
 2. Create or use your existing `resume.json` file following the [JSON Resume schema](https://jsonresume.org/schema/)
 
 3. Generate your resume:
 ```bash
-npx resume export resume.html --theme github
+npx resume export resume.html --theme github-styled
 ```
 
 ### Local Development
@@ -152,12 +152,12 @@ The template uses Handlebars for templating. You can modify `resume.hbs` to adju
 
 ### HTML Export
 ```bash
-npx resume export resume.html --theme github
+npx resume export resume.html --theme github-styled
 ```
 
 ### PDF Export
 ```bash
-npx resume export resume.pdf --theme github
+npx resume export resume.pdf --theme github-styled
 ```
 
 ## License
