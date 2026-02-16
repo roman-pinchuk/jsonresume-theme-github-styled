@@ -1,4 +1,5 @@
 name: Publish to npm
+run-name: Publish release of ${{ github.ref_name }}
 
 on:
   release:
