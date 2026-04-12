@@ -138,9 +138,7 @@
       backdrop-filter: blur(12px) saturate(150%);
       -webkit-backdrop-filter: blur(12px) saturate(150%);
       border: 1px solid rgba(208, 215, 222, 0.3);
-      box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
+      box-shadow: none;
     }
 
     .dark .theme-switcher {
@@ -148,9 +146,7 @@
       backdrop-filter: blur(12px) saturate(150%);
       -webkit-backdrop-filter: blur(12px) saturate(150%);
       border: 1px solid rgba(68, 76, 86, 0.3);
-      box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+      box-shadow: none;
     }
 
     .font-mono {
@@ -197,13 +193,13 @@
       background: rgba(9, 105, 218, 0.1);
       color: #0969da;
       transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(9, 105, 218, 0.2);
+      box-shadow: none;
     }
 
     .dark .theme-btn[data-active="true"] {
       background: rgba(83, 155, 245, 0.15);
       color: #539bf5;
-      box-shadow: 0 2px 8px rgba(83, 155, 245, 0.2);
+      box-shadow: none;
     }
 
     .theme-btn:active {
@@ -214,11 +210,13 @@
     .dark .theme-btn:active {
       background: rgba(83, 155, 245, 0.15);
     }
+
     @media (min-width: 1400px) {
       .theme-switcher-container {
         right: max(1rem, calc(50vw - 640px - 3rem)) !important;
       }
     }
+
   </style>
 </head>
 <body class="text-github-fg-default dark:text-github-fg-dark">
