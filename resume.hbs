@@ -180,6 +180,36 @@
       transform: translateY(0);
     }
 
+    .theme-icon-window {
+      width: 1rem;
+      height: 1rem;
+      overflow: hidden;
+    }
+
+    .theme-icon-track {
+      display: flex;
+      flex-direction: column;
+      transition: transform 180ms ease;
+    }
+
+    .theme-icon-track[data-theme="light"] {
+      transform: translateY(0);
+    }
+
+    .theme-icon-track[data-theme="system"] {
+      transform: translateY(-1rem);
+    }
+
+    .theme-icon-track[data-theme="dark"] {
+      transform: translateY(-2rem);
+    }
+
+    .theme-icon {
+      width: 1rem;
+      height: 1rem;
+      flex: 0 0 1rem;
+    }
+
     .theme-btn:hover {
       color: #24292f;
       background: rgba(0, 0, 0, 0.05);
@@ -259,15 +289,19 @@
   <div class="no-print fixed z-40 theme-switcher-container" style="top: max(1rem, env(safe-area-inset-top)); right: 1rem;">
     <div class="theme-switcher flex h-fit items-stretch justify-start overflow-hidden rounded-xl p-0.5" aria-label="Theme">
       <button type="button" id="theme-toggle" class="theme-btn rounded-lg border-0 text-sm transition-all" title="Theme: system" aria-label="Theme: system" data-theme="system">
-        <svg id="theme-icon-light" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-        </svg>
-        <svg id="theme-icon-system" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"></path>
-        </svg>
-        <svg id="theme-icon-dark" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
+        <span class="theme-icon-window" aria-hidden="true">
+          <span id="theme-icon-track" class="theme-icon-track" data-theme="system">
+            <svg class="theme-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+            <svg class="theme-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z" clip-rule="evenodd"></path>
+            </svg>
+            <svg class="theme-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+            </svg>
+          </span>
+        </span>
         <span id="theme-tooltip" class="theme-tooltip">System</span>
       </button>
     </div>
@@ -692,9 +726,7 @@
 
   <script>
     const themeToggle = document.getElementById('theme-toggle');
-    const themeIconLight = document.getElementById('theme-icon-light');
-    const themeIconSystem = document.getElementById('theme-icon-system');
-    const themeIconDark = document.getElementById('theme-icon-dark');
+    const themeIconTrack = document.getElementById('theme-icon-track');
     const themeTooltip = document.getElementById('theme-tooltip');
     const themes = ['light', 'system', 'dark'];
 
@@ -712,11 +744,8 @@
       themeToggle.setAttribute('data-theme', theme);
       themeToggle.setAttribute('title', 'Theme: ' + theme);
       themeToggle.setAttribute('aria-label', 'Theme: ' + theme);
+      themeIconTrack.setAttribute('data-theme', theme);
       themeTooltip.textContent = theme.charAt(0).toUpperCase() + theme.slice(1);
-
-      themeIconLight.classList.toggle('hidden', theme !== 'light');
-      themeIconSystem.classList.toggle('hidden', theme !== 'system');
-      themeIconDark.classList.toggle('hidden', theme !== 'dark');
     }
 
     function getNextTheme(theme) {
