@@ -4,9 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{basics.name}}{{#if basics.label}} &ndash; {{basics.label}}{{/if}}</title>
-  {{#if basics.image}}
-  <link rel="icon" type="image/png" href="{{basics.image}}">
-  {{/if}}
+{{#if basics.image}}
+  <link id="favicon" rel="icon" type="image/png" href="{{basics.image}}">
+  <script data-cfasync="false">
+    (function() {
+      const favicon = document.getElementById('favicon');
+      if (!favicon) return;
+
+      const image = new Image();
+      image.crossOrigin = 'anonymous';
+
+      image.onload = function() {
+        const size = 64;
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        if (!context) return;
+
+        canvas.width = size;
+        canvas.height = size;
+
+        const scale = Math.max(size / image.naturalWidth, size / image.naturalHeight);
+        const width = image.naturalWidth * scale;
+        const height = image.naturalHeight * scale;
+        const x = (size - width) / 2;
+        const y = (size - height) / 2;
+
+        context.beginPath();
+        context.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        context.closePath();
+        context.clip();
+        context.drawImage(image, x, y, width, height);
+
+        try {
+          favicon.href = canvas.toDataURL('image/png');
+        } catch (error) {
+          // Keep the original favicon when the browser blocks canvas export.
+        }
+      };
+
+      image.src = favicon.href;
+    })();
+  </script>
+{{/if}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
