@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{basics.name}}{{#if basics.label}} &ndash; {{basics.label}}{{/if}}</title>
 {{#if basics.image}}
-  <link id="favicon" rel="icon" type="image/png" href="{{basics.image}}">
+  <meta id="favicon-source" content="{{basics.image}}">
   <script data-cfasync="false">
     (function() {
-      const favicon = document.getElementById('favicon');
-      if (!favicon) return;
+      const source = document.getElementById('favicon-source');
+      if (!source) return;
 
       const image = new Image();
       image.crossOrigin = 'anonymous';
@@ -36,14 +36,20 @@
         context.clip();
         context.drawImage(image, x, y, width, height);
 
+        const link = document.createElement('link');
+        link.id = 'favicon';
+        link.rel = 'icon';
+        link.type = 'image/png';
         try {
-          favicon.href = canvas.toDataURL('image/png');
+          link.href = canvas.toDataURL('image/png');
         } catch (error) {
           // Keep the original favicon when the browser blocks canvas export.
+          link.href = source.content;
         }
+        document.head.appendChild(link);
       };
 
-      image.src = favicon.href;
+      image.src = source.content;
     })();
   </script>
 {{/if}}
