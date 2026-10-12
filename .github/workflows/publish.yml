@@ -4,6 +4,7 @@ run-name: Publish release of ${{ github.ref_name }}
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 permissions:
   id-token: write  # Required for OIDC
