@@ -33,6 +33,6 @@
     "LICENSE"
   ],
   "dependencies": {
-    "handlebars": "^4.7.8"
+    "handlebars": "^4.7.10"
   }
 }
